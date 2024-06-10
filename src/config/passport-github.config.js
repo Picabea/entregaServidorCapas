@@ -1,6 +1,6 @@
 const passport = require('passport')
 const { Strategy } = require('passport-github2')
-const User = require('../dao/models/user.model')
+const User = require('../dao/mongo/models/user.model')
 // const hashingUtils = require('../utils/hashing')
 
 // const { clientID, clientSecret, callBackURL } = require('./github.private')
@@ -40,7 +40,8 @@ const initializeStrategy = () => {
                 lastName,
                 age: 30,
                 email: profile._json.email,
-                password: ' '
+                password: ' ',
+                role: 'user'
             }
 
             const result = await User.create(newUser)

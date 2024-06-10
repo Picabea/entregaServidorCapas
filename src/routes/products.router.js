@@ -1,6 +1,8 @@
 const { Router } = require('express')
 const { ProductsController } = require('../controllers/products.controller.js')
 const { ProductsService } = require('../services/products.service.js')
+const { userIsAdmin } = require('../middlewares/permissions.middleware.js')
+const { userIsLoggedIn } = require('../middlewares/auth.middleware.js')
 
 const router = Router()
 
@@ -20,11 +22,11 @@ router.get('/', withController((controller, req, res) => controller.getProducts(
 
 router.get('/:pid', withController((controller, req, res) => controller.getProductById(req, res)))
 
-router.post('/', withController((controller, req, res) => controller.addProduct(req, res)))
+router.post('/', userIsAdmin, withController((controller, req, res) => controller.addProduct(req, res)))
 
-router.delete('/:pid', withController((controller, req, res) => controller.deleteProduct(req, res)))
+router.delete('/:pid', userIsAdmin, withController((controller, req, res) => controller.deleteProduct(req, res)))
 
-router.put('/:pid', withController((controller, req, res) => controller.updateProduct(req, res)))
+router.put('/:pid', userIsAdmin, withController((controller, req, res) => controller.updateProduct(req, res)))
 
 
 module.exports = {

@@ -1,3 +1,5 @@
+const CurrentUserDTO = require('../dao/DTOs/currentUser.dto')
+
 class SessionController{
     constructor(productsService) {
         this.service = productsService
@@ -29,10 +31,11 @@ class SessionController{
 
     async current(req, res){
         try{
+            console.log(1)
             const userEmail = req.session.user.email
 
-            const user = await this.service.getUser(userEmail)
-
+            const user = new CurrentUserDTO(await this.service.getUser(userEmail)) 
+            console.log(CurrentUserDTO)
             res.render('currentUser', {
                 user,
                 cart: user.cart

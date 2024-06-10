@@ -4,6 +4,7 @@ class SessionService {
     }
 
     async getUser(email){
+        console.log(2)
         if(email){
             return await this.storage.getUser(email)
         }else{

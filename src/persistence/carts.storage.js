@@ -1,63 +1,55 @@
-const CartModel = require('../dao/models/cart.model')
-
+const CartDAO = require('../dao/factory').cart
+const UserDAO = require('../dao/factory').user
+const ProductDAO = require('../dao/factory').product
+const TicketDAO = require('../dao/factory').ticket
 
 class CartsStorage{
     async getCartById(cid){
-        const carts = await CartModel.find()
-        const cart = carts.map(cart => cart.toObject({virtuals: true})).find(cart => cart.id === cid)
-        return cart
+        return await CartDAO.getCartById(cid)
     }
 
     async createCart(products){
-        return await CartModel.create({products})
+        return await CartDAO.createCart(products)
     }
 
     async addProductToCart(cid, pid, quantity){
-        const cart = await this.getCartById(cid)
-        const newProducts = cart.products
-
-        newProducts.push({
-            productId: pid,
-            quantity
-        })
-
-        console.log(await CartModel.updateOne({_id: cid}, {$set: {products: newProducts}}))
+        return await CartDAO.addProductToCart(cid, pid, quantity)
     }
 
     async deleteProductFromCart(cid, pid){
-        const cart = await CartModel.findByIdAndUpdate(cid, {
-          $pull: { products: { productId: pid } },
-        });
-
-        return(cart)
+        return await CartDAO.deleteProductFromCart(cid, pid)
     }
 
     async deleteProductsFromCart(cid){
-        const cart = await CartModel.findByIdAndUpdate(cid, {
-            $set: {products: []}
-        })
-        return(cart)
+        return await CartDAO.deleteProductsFromCart(cid)
     }
 
     async updateProductsFromCart(cid, products){
-        const cart = await CartModel.findByIdAndUpdate(cid, {
-            $set: {products: products},
-          });
-
-          return(cart)
+        return await CartDAO.updateProductsFromCart(cid, products)
     }
 
     async updateProductQuantity(cid, pid, newQuantity){
-        const cart = await CartModel.findByIdAndUpdate(cid, {
-            $pull: { products: { productId: pid } },
-          });
+        return await CartDAO.updateProductQuantity(cid, pid, newQuantity)
+    }
 
-        console.log(cart)
-        const product = await CartModel.findByIdAndUpdate(cid, {
-            $push: {products: {productId: pid, quantity: newQuantity}}
-        })
-       
-        return(product)
+    async getUser(email){
+        return await UserDAO.getUser(email)
+    }
+
+    async getProductStock(pid){
+        return await ProductDAO.getProductById(pid)
+    }
+    
+    async buyProduct(pid, newQuantity){
+        return await ProductDAO.buyProduct(pid, newQuantity)
+      }
+    
+    async createTicket(code, date, total, userEmail){
+        return await TicketDAO.createTicket(code, date, total, userEmail)
+    }
+
+    async updateProductsFromCart(cid, unboughtProducts){
+        return await CartDAO.updateProductsFromCart(cid, unboughtProducts)
     }
 }
 

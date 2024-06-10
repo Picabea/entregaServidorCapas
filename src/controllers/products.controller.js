@@ -19,7 +19,6 @@ class ProductsController{
     async getProducts(req, res){
         try{
             const userEmail = req.session.user.email
-
             let user = await this.service.getUser(userEmail)
 
             let limit = req.query.limit
@@ -29,10 +28,22 @@ class ProductsController{
             let sort = req.query.sort
             let queryField = req.query.queryField
             let queryContent = req.query.queryContent
-            let data = await this.service.getProducts(limit, page, sort, queryField, queryContent)
-            res.render("home", {
-                response: data,
-                user
+
+            let response = await this.service.getProducts(limit, page, sort, queryField, queryContent)
+
+            let isUser = user.role === 'user'
+            let isAdmin = user.role === 'admin'
+
+            res.render('home', {
+                user,
+                response,
+                isUser,
+                isAdmin,
+                cid: user.cart._id,
+                scripts: [
+                    'products.js'
+                ],
+                useWS: true,
             })
 
         }catch(err){
@@ -66,6 +77,7 @@ class ProductsController{
         const pid = req.params.pid
         try{
             const result = await this.service.deleteProduct(pid)
+            console.log(result)
             res.send(result)
         }catch(err){
             this.#handleError(res, err)

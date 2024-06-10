@@ -1,8 +1,8 @@
-const UserModel = require('../dao/models/user.model')
+const userDao = require('../dao/factory').user
 
 class ViewsStorage{
     async getUser(id){
-        return UserModel.findById(id)
+        return await userDao.getUserById(id)
     }
 }
 

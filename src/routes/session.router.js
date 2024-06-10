@@ -1,6 +1,5 @@
 const { Router } = require('express')
 
-const User = require("../dao/models/user.model.js")
 const { hashPassword, isValidPassword } = require('../utils/hashing.js')
 const { userIsLoggedIn } = require('../middlewares/auth.middleware.js')
 

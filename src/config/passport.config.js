@@ -1,7 +1,7 @@
 const passport = require('passport')
 const { Strategy } = require('passport-local')
-const User = require('../dao/models/user.model')
-const Cart = require('../dao/models/cart.model')
+const User = require('../dao/mongo/models/user.model')
+const Cart = require('../dao/mongo/models/cart.model')
 const hashingUtils = require('../utils/hashing')
 // const { generateToken, verifyToken } = require('../utils/utils')
 
@@ -30,7 +30,8 @@ const initializeStrategy = () => {
                 age: +age,
                 email,
                 password: hashingUtils.hashPassword(password),
-                cart: cart._id.toString()
+                cart: cart._id.toString(),
+                role: 'user'
             }
             console.log(newUser)
             const result = await User.create(newUser)
@@ -49,11 +50,6 @@ const initializeStrategy = () => {
                 return done(null, false)
             }
         
-            // if(username === "adminCoder@coder.com" && password === "adminCod3r123"){
-            //     req.session.user = {email, _id: "admin"}
-            //     return res.redirect('/api/products/')
-            // }
-        
             // Verificar que el usuario exista
             const user = await User.findOne({email: username})
             if(!user){
@@ -64,7 +60,7 @@ const initializeStrategy = () => {
                 return done(null, false)
             }
 
-            const credentials = { id: user._id.toString(), email: user.email}
+            // const credentials = { id: user._id.toString(), email: user.email}
             // const accessToken = generateToken(credentials)
             // console.log(accessToken)
             return done(null, user)

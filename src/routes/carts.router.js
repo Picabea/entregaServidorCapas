@@ -2,6 +2,8 @@ const { Router } = require('express')
 // const cart = require('../dao/dbManagers/carts.js')
 const router = Router()
 
+const { userIsLoggedIn } = require('../middlewares/auth.middleware.js')
+
 const { CartsController } = require('../controllers/carts.controller.js')
 const { CartsService } = require('../services/carts.service.js')
 
@@ -22,6 +24,8 @@ router.get('/:cid', withController((controller, req, res) => controller.getCartB
 router.post('/', withController((controller, req, res) => controller.createCart(req, res)))
 
 router.post('/:cid/product/:pid', withController((controller, req, res) => controller.addProductToCart(req, res)))
+
+router.post('/:cid/purchase', userIsLoggedIn, withController((controller, req, res) => controller.purchase(req, res)))
 
 router.delete('/:cid/product/:pid', withController((controller, req, res) => controller.deleteProductFromCart(req, res)))
 

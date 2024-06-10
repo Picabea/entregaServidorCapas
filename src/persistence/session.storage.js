@@ -1,14 +1,13 @@
-const UserModel = require('../dao/models/user.model')
-const { hashPassword } = require('../utils/hashing')
-
+const userDAO = require('../dao/factory').user
 
 class SessionStorage{
     async getUser(email){
-        return await UserModel.findOne({email}).lean()
+        console.log(3)
+        return await userDAO.getUser(email)
     }
 
     async restorePassword(email, newPassword){
-        return await UserModel.findOneAndUpdate({email}, {password: hashPassword(newPassword)})
+        return await userDAO.restorePassword(email, newPassword)
     }
 }
 

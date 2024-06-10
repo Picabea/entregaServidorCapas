@@ -89,6 +89,58 @@ class CartsController{
             res.json(err)
         }
     }
+
+    async purchase(req, res){
+        try{
+            const userEmail = req.session.user.email
+            const user = await this.service.getUser(userEmail)
+            const cart = await this.service.getCartById(user.cart._id.toString())
+            
+            let boughtProducts = []
+            let unboughtProducts = []
+            let unboughtResponse = []
+
+            let total = 0
+            console.log(cart.products)
+            if(cart.products.length > 0){
+                cart.products.forEach(async product => {
+                    const stock = product.productId.stock
+                    const quantity = product.quantity
+                    const hasStock = stock - quantity >= 0
+                    console.log(`stock: ${stock}`)
+                    console.log(`Quantity: ${quantity}`)
+                    console.log(hasStock)
+        
+                    if(hasStock){
+                        this.service.buyProduct(product.productId._id, stock - quantity)
+                        boughtProducts.push({
+                            pid: product.productId._id,
+                            quantity
+                        })
+                        total = total + (product.productId.price * quantity)
+                    }else{
+                        unboughtProducts.push({
+                            productId: product.productId._id,
+                            quantity
+                        })
+                        unboughtResponse.push(product.productId)
+                    }
+                })
+            }else{
+                res.json({error: 'El carrito debe tener productos'})
+            }
+
+            console.log(total)
+            console.log(unboughtProducts)
+            console.log(boughtProducts)
+        
+            const result = await this.service.createTicket(total, userEmail)
+            await this.service.updateProductsFromCart(user.cart._id.toString(), unboughtProducts)
+            res.json({result, unboughtResponse})
+        }catch(err){
+            res.send(`Error: ${err.message}`)
+        }
+    }
 }
 
 module.exports = { CartsController }

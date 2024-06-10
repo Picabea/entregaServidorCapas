@@ -37,6 +37,31 @@ class CartsService {
         }
         return await this.storage.updateProductQuantity(cid, pid, newQuantity)
     }
+
+    async getUser(email){
+        return await this.storage.getUser(email)
+    }
+
+    async getProductStock(pid){
+        return await this.storage.getProductStock(pid)
+    }
+
+    async buyProduct(pid, newQuantity){
+        return await this.storage.buyProduct(pid, newQuantity)
+    }
+
+    async createTicket(total, userEmail){
+        if(total <= 0){
+            throw new Error("Total invalido")
+        }
+        const date = Date.now()
+        const code = date * total
+        return await this.storage.createTicket(code, date, total, userEmail)
+    }
+
+    async updateProductsFromCart(cid, unboughtProducts){
+        return await this.storage.updateProductsFromCart(cid, unboughtProducts)
+    }
 }
 
 module.exports = { CartsService }

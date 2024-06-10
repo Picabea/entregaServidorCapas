@@ -1,6 +1,5 @@
 const { Router } = require('express')
 
-const User = require("../dao/models/user.model.js")
 const { userIsLoggedIn, userIsNotLoggedIn } = require('../middlewares/auth.middleware.js')
 
 const router = Router()

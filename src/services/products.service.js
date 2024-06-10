@@ -1,3 +1,5 @@
+const {ProductsDTO} = require('../dao/DTOs/products.dto')
+
 class ProductsService {
     constructor(storage) {
         this.storage = storage
@@ -6,41 +8,9 @@ class ProductsService {
     async getProducts(limit = null, page = 1, sort= null, queryField = null, queryContent = null){
         let results = await this.storage.getProducts(limit, page, sort, queryField, queryContent)
 
-        //Se arma el objeto de respuesta
-        let limitConcat = limit
-            ?`&limit=${limit}`
-            :""
-  
-          let queryConcat = queryField && queryContent
-            ?`&queryField=${queryField}&queryContent=${queryContent}`
-            :""
-  
-          let sortConcat = sort
-            ?`&sort=${sort}`
-            :""
-  
-          const prevLink = results.prevPage 
-            ?`http://localhost:8080/api/products?page=${results.prevPage}${limitConcat}${queryConcat}${sortConcat}`
-            :null
-  
-          const nextLink = results.nextPage
-            ?`http://localhost:8080/api/products?page=${results.nextPage}${limitConcat}${queryConcat}${sortConcat}`
-            :null
-  
-          const data = {
-              status: "success",
-              payload: results.docs,
-              totalPages: results.totalPages,
-              prevPage: results.prevPage,
-              nextPage: results.nextPage,
-              page: results.page,
-              hasPrevPage: results.hasPrevPage,
-              hasNextPage: results.hasNextPage,
-              prevLink,
-              nextLink
-          }
-
-          return data;
+        const data = new ProductsDTO(limit, queryField, queryContent, sort, results).data
+        
+        return data;
     }
 
     async getProductById(pid){
