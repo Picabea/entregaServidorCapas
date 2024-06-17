@@ -5,26 +5,17 @@ class CartsController{
 
     async getCartById(req, res){
         const cid = req.params.cid
-        try{
-            const response = await this.service.getCartById(cid)
-            console.log(response)
-            res.render("cart",{products: response.products})
-        }catch(error){
-            res.json({error})
-        }
+        const response = await this.service.getCartById(cid)
+        res.send(response)
     }
 
     async createCart(req, res){
         const products = req.body
         console.log(products)
-        try{
-            if(products.length >= 1){
-                res.send(await this.service.createCart(products))
-            }else{
-                res.send(await this.service.createCart([]))
-            }
-        }catch(error){
-            res.json({error})
+        if(products.length >= 1){
+            res.send(await this.service.createCart(products))
+        }else{
+            res.send(await this.service.createCart([]))
         }
     }
 
@@ -33,46 +24,31 @@ class CartsController{
         const pid = req.params.pid
         const quantity = req.body.quantity
 
-        try{
-            const response = await this.service.addProductToCart(cid, pid, quantity)
-            res.send(response)
-        }catch(error){
-            res.json({error})
-        }
+        const response = await this.service.addProductToCart(cid, pid, quantity)
+        res.send(response)
     }
 
     async deleteProductFromCart(req, res){
         const cid = req.params.cid
         const pid = req.params.pid
 
-        try{
-            const result = await this.service.deleteProductFromCart(cid, pid)
-            res.status(200).json(result)
-        }catch(err){
-            res.status(400).send(err)
-        }
+        const result = await this.service.deleteProductFromCart(cid, pid)
+        res.status(200).json(result)
     }
 
     async deleteProductsFromCart(req, res){
         const cid = req.params.cid
-        try{
-            const result = await this.service.deleteProductsFromCart(cid)
-            res.status(200).json(result)
-        }catch(err){
-            res.status(400).json(err)
-        }
+
+        const result = await this.service.deleteProductsFromCart(cid)
+        res.status(200).json(result)
     }
 
     async updateProductsFromCart(req, res){
         const cid = req.params.cid
         const products = req.body
 
-        try{
-            const result = await this.service.updateProductsFromCart(cid, products)
-            res.status(200).json(result)
-        }catch(err){
-            res.status(400).send(err)
-        }
+        const result = await this.service.updateProductsFromCart(cid, products)
+        res.status(200).json(result)
     }
 
     async updateProductQuantity(req, res){
@@ -81,17 +57,12 @@ class CartsController{
 
         const newQuantity = req.body["newQuantity"]
 
-        try{
-            const result = await this.service.updateProductQuantity(cid, pid, newQuantity)
-            
-            res.json(result)
-        }catch(err){
-            res.json(err)
-        }
+        const result = await this.service.updateProductQuantity(cid, pid, newQuantity)
+        
+        res.json(result)
     }
 
     async purchase(req, res){
-        try{
             const userEmail = req.session.user.email
             const user = await this.service.getUser(userEmail)
             const cart = await this.service.getCartById(user.cart._id.toString())
@@ -104,6 +75,7 @@ class CartsController{
             console.log(cart.products)
             if(cart.products.length > 0){
                 cart.products.forEach(async product => {
+                    console.log(product)
                     const stock = product.productId.stock
                     const quantity = product.quantity
                     const hasStock = stock - quantity >= 0
@@ -137,9 +109,6 @@ class CartsController{
             const result = await this.service.createTicket(total, userEmail)
             await this.service.updateProductsFromCart(user.cart._id.toString(), unboughtProducts)
             res.json({result, unboughtResponse})
-        }catch(err){
-            res.send(`Error: ${err.message}`)
-        }
     }
 }
 

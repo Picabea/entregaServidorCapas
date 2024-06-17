@@ -29,6 +29,7 @@ router.get('/profile', userIsLoggedIn, withController((controller, req, res) => 
 
 router.get('/restorePassword', userIsNotLoggedIn, withController((controller, req, res) => controller.restorePassword(req, res)))
 
+router.get('testEncoding', withController((controller, req, res) => controller.testEncoding(req, res)))
 module.exports = {
     configure: app => app.use('/', router)
 }

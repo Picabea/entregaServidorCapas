@@ -65,33 +65,26 @@ class ProductsController{
         const info = req.body
         const { title, description, price, thumbnail, code, stock, category } = info
 
-        try{
-            const result = await this.service.addProduct(title, description, price, thumbnail, code, stock, category)
-            res.send(result)
-        }catch(err){
-            this.#handleError(res, err)
-        }
+        const result = await this.service.addProduct(title, description, price, thumbnail, code, stock, category)
+        res.send(result)
     }
 
     async deleteProduct(req, res){
         const pid = req.params.pid
-        try{
-            const result = await this.service.deleteProduct(pid)
-            console.log(result)
-            res.send(result)
-        }catch(err){
-            this.#handleError(res, err)
-        }
+        const result = await this.service.deleteProduct(pid)
+        console.log(result)
+        res.send(result)
     }
 
     async updateProduct(req, res){
         let id = req.params.pid
-        try{
-            const result = await this.service.updateProduct(id, req.body)
-            res.send(result)
-        }catch(err){
-            this.#handleError(res, err)
-        }
+        const result = await this.service.updateProduct(id, req.body)
+        res.send(result)
+    }
+
+    async mockingProducts(_, res){
+        await this.service.mockingProducts()
+        res.status(200).send('success')
     }
 }
 

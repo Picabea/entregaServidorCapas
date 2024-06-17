@@ -1,4 +1,9 @@
 const {ProductsDTO} = require('../dao/DTOs/products.dto')
+const { mockingProducts } = require('../createProducts')
+const { CustomError } = require('../errors/CustomError')
+const { generateInvalidProductDataError } = require('../errors/errors')
+const { ErrorCodes } = require('../errors/errorCodes')
+
 
 class ProductsService {
     constructor(storage) {
@@ -18,7 +23,12 @@ class ProductsService {
         if(product){
             return(product)
         }else{
-            throw new Error("not found")
+            throw CustomError.createError({
+              name: 'Not found',
+              cause: 'Invalid product ID',
+              message: 'No product with that ID was found',
+              cade: ErrorCodes.NOT_FOUND
+            })
         }
     }
 
@@ -30,7 +40,12 @@ class ProductsService {
         if(title && description && code && stock && category && validStock && validPrice){
             return await this.storage.addProduct(title, description, price, thumbnail, code, stock, category)
         }else{
-            throw new Error("invalid data")
+            throw CustomError.createError({
+              name: 'Invalid Data',
+              cause: generateInvalidProductDataError(title, description, price, code, stock, category, thumbnail),
+              message: "Invalid Data was sent",
+              code: ErrorCodes.INVALID_DATA_ERROR
+            }) 
         }
     }
 
@@ -40,7 +55,12 @@ class ProductsService {
         if(validId){
             return await this.storage.deleteProduct(id)
         }else{
-            throw new Error("invalid data")
+            throw CustomError.createError({
+              name: 'Invalid Data',
+              cause: 'The id should be a 24 letter long String',
+              message: "The ID that was sent is not valid",
+              code: ErrorCodes.INVALID_DATA_ERROR
+            })
         }
     }
 
@@ -55,13 +75,23 @@ class ProductsService {
 
       //El id no puede ser modificado, por lo cual se controla que no se lo haga
       if(newKeys.includes("id") || invalidId){
-        throw new Error('invalid data')
+        throw CustomError.createError({
+          name: 'Invalid Data',
+          cause: 'The id can not be modified',
+          message: 'A new ID was sent which can not be modified',
+          code: ErrorCodes.INVALID_DATA_ERROR
+        })
       }
 
       //Controlar que se modifiquen campos validos
       newKeys.forEach((key) => {
         if(!validKeys.includes(key)){
-          throw new Error('invalid data')
+          throw CustomError.createError({
+            name: 'Invalid Data',
+            cause: `The only keys that can be modified are ${validKeys}`,
+            message: "You must send valid keys",
+            code: ErrorCodes.INVALID_DATA_ERROR
+          })
         }
       })
 
@@ -72,8 +102,17 @@ class ProductsService {
       if(userEmail){
         return await this.storage.getUser(userEmail)
       }else{
-        throw new Error('invalid data')
+        throw CustomError.createError({
+          name: 'Invalid Data',
+          cause: 'No user email was received',
+          message: 'You must send an email',
+          code: ErrorCodes.INVALID_DATA_ERROR
+        })
       }
+    }
+
+    async mockingProducts(){
+      return await mockingProducts()
     }
 }
 

@@ -20,6 +20,8 @@ const withController = callback => {
 
 router.get('/', withController((controller, req, res) => controller.getProducts(req, res)))
 
+router.get('/mockingProducts', withController((controller, req, res) => controller.mockingProducts(req, res)))
+
 router.get('/:pid', withController((controller, req, res) => controller.getProductById(req, res)))
 
 router.post('/', userIsAdmin, withController((controller, req, res) => controller.addProduct(req, res)))

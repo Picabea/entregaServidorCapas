@@ -8,6 +8,8 @@ const { ViewsStorage } = require('./persistence/views.storage.js')
 const { SessionStorage } = require('./persistence/session.storage.js')
 const { CartsStorage } = require('./persistence/carts.storage.js')
 
+const {errorHandler} = require('./middlewares/errorHandler.js')
+
 const config = require('./config.js')
 
 const sessionMiddleware = require('./session/mongoStorage.js')
@@ -60,6 +62,8 @@ app.set('carts.storage', new CartsStorage())
 for (const route of routes) {
     route.configure(app)
 }
+
+app.use(errorHandler)
 
 const main = async () => {
     //Inicializar mongo y prender servidor

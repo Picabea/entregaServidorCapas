@@ -30,33 +30,23 @@ class SessionController{
     }
 
     async current(req, res){
-        try{
-            console.log(1)
-            const userEmail = req.session.user.email
-
-            const user = new CurrentUserDTO(await this.service.getUser(userEmail)) 
-            console.log(CurrentUserDTO)
-            res.render('currentUser', {
-                user,
-                cart: user.cart
-            })
-        }catch(err){
-            res.status(400).json({error: err})
-        }
+        console.log(1)
+        const userEmail = req.session.user.email
+        const user = new CurrentUserDTO(await this.service.getUser(userEmail)) 
+        res.render('currentUser', {
+            user,
+            cart: user.cart
+        })
     }
     
     async restorePassword(req, res){
         const { email, newPassword } = req.body
-        try{
-            const user = await this.service.restorePassword(email, newPassword)
-            if(user){
-                res.status(200).redirect('/')
-            }else{
-                res.status(400).json({success: false})
-            }
-        }catch(err){
-            res.status(400).json({error: err})
-        }  
+        const user = await this.service.restorePassword(email, newPassword)
+        if(user){
+            res.status(200).redirect('/')
+        }else{
+            res.status(400).json({success: false})
+        }
     }
 
     async githubcallback(req, res){

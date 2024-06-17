@@ -1,3 +1,6 @@
+const { CustomError } = require("../errors/CustomError")
+const { ErrorCodes } = require("../errors/errorCodes")
+
 class SessionService {
     constructor(storage) {
         this.storage = storage
@@ -8,7 +11,12 @@ class SessionService {
         if(email){
             return await this.storage.getUser(email)
         }else{
-            throw new Error('No email')
+            throw CustomError.createError({
+                name: 'Invalid Data',
+                cause: 'Invalid Email',
+                message: 'There is no users with that Email',
+                code: ErrorCodes.INVALID_DATA_ERROR
+            })
         }
     }
 

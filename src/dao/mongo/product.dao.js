@@ -1,3 +1,5 @@
+const { CustomError } = require('../../errors/CustomError')
+const { ErrorCodes } = require('../../errors/errorCodes')
 const ProductModel = require('./models/product.model')
 
 class ProductDAO {
@@ -31,7 +33,12 @@ class ProductDAO {
                 category: queryContent
               }
             }else{
-              throw new Error("Contenido de la query invalido")
+              throw CustomError.createError({
+                name: 'Invalid Data',
+                cause: 'Invalid query content was sent',
+                message: 'The query content must be "gaseosas", "electrodomestico" or "comestible"',
+                code: ErrorCodes.INVALID_DATA_ERROR
+              })
             }
           }else if(queryField === "disponible"){
             let validContent = !isNaN(queryContent) && queryContent >= 1
@@ -43,10 +50,20 @@ class ProductDAO {
                 }
               }
             }else{
-              throw new Error("Contenido de la query invalido")
+              throw CustomError.createError({
+                name: 'Invalid Data',
+                cause: 'Invalid query content was sent',
+                message: 'The query content must be a number greater than 0',
+                code: ErrorCodes.INVALID_DATA_ERROR
+              })
             }
           }else{
-            throw new Error("Ese campo no se puede filtrar")
+            throw CustomError.createError({
+              name: 'Invalid Data',
+              cause: 'The query field is not valid',
+              message: 'Query field must be "category" or "disponible"',
+              code: ErrorCodes.INVALID_DATA_ERROR
+            })
           }
         }
   

@@ -1,3 +1,6 @@
+const { CustomError } = require("../errors/CustomError")
+const { ErrorCodes } = require('../errors/errorCodes')
+
 class CartsService {
     constructor(storage) {
         this.storage = storage
@@ -7,7 +10,12 @@ class CartsService {
         if(cid){
             return await this.storage.getCartById(cid)
         }else{
-            throw new Error('invalid data')
+            throw CustomError.createError({
+                name: 'Invalid Data',
+                cause: 'No cart ID was received',
+                message: 'You must send a cart ID',
+                code: ErrorCodes.INVALID_DATA_ERROR
+            })
         }
     }
 
@@ -33,7 +41,12 @@ class CartsService {
 
     async updateProductQuantity(cid, pid, newQuantity){
         if(!newQuantity){
-            throw new Error('invalid data')
+            throw CustomError.createError({
+                name: 'Invalid Data',
+                cause: 'No newQuantity was received',
+                message: 'You must send the new quantity the product will have',
+                code: ErrorCodes.INVALID_DATA_ERROR
+            })
         }
         return await this.storage.updateProductQuantity(cid, pid, newQuantity)
     }
@@ -52,7 +65,12 @@ class CartsService {
 
     async createTicket(total, userEmail){
         if(total <= 0){
-            throw new Error("Total invalido")
+            throw CustomError.createError({
+                name: 'Invalid Total',
+                cause: 'The total of the ticket must be greater than 0',
+                message: 'No products were being bought',
+                code: ErrorCodes.INVALID_TOTAL_ERROR
+            })
         }
         const date = Date.now()
         const code = date * total

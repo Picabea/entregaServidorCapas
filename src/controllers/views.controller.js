@@ -1,3 +1,6 @@
+const compression = require('express-compression')
+const zlib = require('zlib')
+
 class ViewsController{
     constructor(productsService) {
         this.service = productsService
@@ -52,6 +55,46 @@ class ViewsController{
     
     restorePassword(_, res){
         res.render('restorePassword')
+    }
+
+    //Utilizando zlib(tecnologia vieja)
+    testEnconding(req, res){
+        const response = 'respuesta muy larga'.repeat(1000)
+
+        res.setHeader('Content-Encoding', 'deflate')
+        zlib.deflate(response, (err, result) => {
+            res.write(result)
+        })
+    }
+
+    //Utilizando gzip 
+
+    //Hay que poner esta linea sobre el req, res para que se comprima
+    // app.use(compression())
+    testEnconding(req, res){
+        const response = 'respuesta muy larga'.repeat(1000)
+
+        res.send(response)
+    }
+
+    //Utilizando gzip manualmente
+    
+    testEnconding(req, res){
+        const response = 'respuesta muy larga'.repeat(1000)
+
+        res.setHeader('Content-Encoding', 'gzip')
+        zlib.gzip(response, {level: 1, strategy: 4}, (err, result) => {
+            res.write(result)
+        })
+    }
+
+    //Utilizando brotli
+    //Hay que poner esta linea sobre el req, res para que se comprima
+    // app.use(compression({brotli: {enabled: true, zlib: {}}}))
+    testEnconding(req, res){
+        const response = 'respuesta muy larga'.repeat(1000)
+
+        res.send(response)
     }
 }
 
