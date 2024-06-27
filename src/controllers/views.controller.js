@@ -8,7 +8,7 @@ class ViewsController{
 
     renderHome(req, res){
         const isLoggedIn = ![null, undefined].includes(req.session.user)
-
+        req.logger.debug(`isLoggedIn: ${isLoggedIn}`)
         res.render('index', {
             title: 'Home',
             isLoggedIn,
@@ -38,10 +38,10 @@ class ViewsController{
                 email: "adminCoder@coder.com"
             }
         }
-        
         const idFromSession = req.session.user._id
-
+        
         user = await this.service.getUser(idFromSession)
+        req.logger.debug(`User: ${user}`)
         res.render('profile', {
             title: 'My profile',
             user: {
@@ -95,6 +95,18 @@ class ViewsController{
         const response = 'respuesta muy larga'.repeat(1000)
 
         res.send(response)
+    }
+
+    loggerTest(req, res){
+        const logger = req.logger
+        logger.debug(`Nivel debug en ${req.method} ${req.url}`)
+        logger.http(`Nivel http en ${req.method} ${req.url}`)
+        logger.info(`Nivel info en ${req.method} ${req.url}`)
+        logger.warning(`Nivel warning en ${req.method} ${req.url}`)
+        logger.error(`Nivel error en ${req.method} ${req.url}`)
+        logger.fatal(`Nivel fatal en ${req.method} ${req.url}`)
+
+        res.send("a")
     }
 }
 

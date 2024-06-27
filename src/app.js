@@ -14,6 +14,8 @@ const config = require('./config.js')
 
 const sessionMiddleware = require('./session/mongoStorage.js')
 
+const {addLogger} = require('./utils/logger.js')
+
 //recursos necesarios de passport
 const passport = require('passport')
 const initializeStrategy = require('./config/passport.config.js')
@@ -43,6 +45,8 @@ initializeStrategy()
 app.use(passport.initialize())
 app.use(passport.session())
 
+//Se configura el logger
+app.use(addLogger)
 
 //config handlebars
 app.engine('handlebars', handlebars.engine())

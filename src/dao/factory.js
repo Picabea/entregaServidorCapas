@@ -7,9 +7,10 @@ const fsCartDAO = require('./fs/cart.dao')
 const fsProductDAO = require('./fs/product.dao')
 const fsUserDAO = require('./fs/user.dao')
 
-let args = process.argv
-
-let persistence = args.slice(2)[0]
+const {options} = require('../utils/commander')
+const persistence = options.fileSystem == 'true'
+?'fs'
+:'mongo'
 
 if(persistence == 'fs'){
     module.exports = {
