@@ -18,6 +18,8 @@ const errorHandler = (error, req, res, next) => {
             res.status(400).send({ status: 'error', error: error.name })
         case ErrorCodes.INVALID_TOTAL_ERROR:
             res.status(400).send({ status: 'error', error: error.name })
+        case ErrorCodes.INVALID_CART_ERROR:
+            res.status(400).send({ status: 'error', error: error.name })
         default:
             res.status(500).send({ status: 'error', error: 'Unknown' })
     }

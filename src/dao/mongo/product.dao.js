@@ -5,20 +5,16 @@ const ProductModel = require('./models/product.model')
 class ProductDAO {
   constructor(){}
     async addProduct(title, description, price, thumbnail, code, stock, category){
-        try{
-          return(await ProductModel.create({
-            title,
-            description,
-            price,
-            thumbnail,
-            code,
-            stock,
-            status: true,
-            category
-          }))
-        }catch(err){
-          return(err)
-        }
+        return(await ProductModel.create({
+          title,
+          description,
+          price,
+          thumbnail,
+          code,
+          stock,
+          status: true,
+          category
+        }))
     }
 
     async getProducts(limit = null, page = 1, sort= null, queryField = null, queryContent = null){

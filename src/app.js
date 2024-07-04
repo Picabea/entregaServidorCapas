@@ -31,10 +31,26 @@ const routes = [
 
 const { Server } = require('socket.io')
 
-
 const mongoose = require('mongoose')
 
 const app = express()
+
+//Configuracion de swagger
+const swaggerJSDoc = require('swagger-jsdoc')
+const { serve, setup } = require('swagger-ui-express')
+
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.1',
+        info: {
+            title: "Documentacion del poder y del saber",
+            description: "API pensada para clase swager"
+        }
+    },
+    apis: [`${__dirname}/docs/**/*.yaml`]
+}
+const specs = swaggerJSDoc(swaggerOptions)
+app.use('/apidocs', serve, setup(specs))
 
 //Se configura el usoi de sesiones
 app.use(sessionMiddleware)

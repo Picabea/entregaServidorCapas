@@ -1,0 +1,8 @@
+{"level":"error","message":"Error Invalid Data en GET /api/products?sort=desc&limit=5&queryfield=caca"}
+{"level":"error","message":"Error TypeError en GET /api/products"}
+{"level":"error","message":"Error TypeError en GET /api/products"}
+{"level":"error","message":"Error TypeError en GET /api/products"}
+{"level":"error","message":"Error TypeError en GET /api/products"}
+{"level":"error","message":"Error TypeError en GET /api/products?sort=desc&limit=5&queryfield=caca"}
+{"level":"error","message":"Error TypeError en GET /api/products"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}

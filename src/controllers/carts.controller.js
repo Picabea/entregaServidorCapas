@@ -1,3 +1,6 @@
+const { CustomError } = require('../errors/CustomError')
+const { ErrorCodes } = require('../errors/errorCodes')
+
 class CartsController{
     constructor(productsService) {
         this.service = productsService
@@ -25,7 +28,7 @@ class CartsController{
         const quantity = req.body.quantity
 
         const response = await this.service.addProductToCart(cid, pid, quantity)
-        res.send(response)
+        res.send({acknowledged: response.acknowledged, modifiedCount: response.modifiedCount})
     }
 
     async deleteProductFromCart(req, res){
@@ -75,13 +78,9 @@ class CartsController{
             console.log(cart.products)
             if(cart.products.length > 0){
                 cart.products.forEach(async product => {
-                    console.log(product)
                     const stock = product.productId.stock
                     const quantity = product.quantity
                     const hasStock = stock - quantity >= 0
-                    console.log(`stock: ${stock}`)
-                    console.log(`Quantity: ${quantity}`)
-                    console.log(hasStock)
         
                     if(hasStock){
                         this.service.buyProduct(product.productId._id, stock - quantity)
@@ -99,12 +98,13 @@ class CartsController{
                     }
                 })
             }else{
-                res.json({error: 'El carrito debe tener productos'})
+                throw CustomError.createError({
+                    name: 'Invalid Cart',
+                    cause: "El carrito debe tener productos",
+                    message: "Agregue productos al carrito para finalizar la compra",
+                    code: ErrorCodes.INVALID_CART_ERROR
+                })
             }
-
-            console.log(total)
-            console.log(unboughtProducts)
-            console.log(boughtProducts)
         
             const result = await this.service.createTicket(total, userEmail)
             await this.service.updateProductsFromCart(user.cart._id.toString(), unboughtProducts)

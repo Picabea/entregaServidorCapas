@@ -17,38 +17,30 @@ class ProductsController{
     }
 
     async getProducts(req, res){
-        try{
-            const userEmail = req.session.user.email
-            let user = await this.service.getUser(userEmail)
+        const userEmail = req.session.user.email
+        let user = await this.service.getUser(userEmail)
+        let limit = req.query.limit
+        ?req.query.limit
+        :10
+        let page = req.query.page
+        let sort = req.query.sort
+        let queryField = req.query.queryfield
+        let queryContent = req.query.querycontent
+        let response = await this.service.getProducts(limit, page, sort, queryField, queryContent)
+        let isUser = user.role === 'user'
+        let isAdmin = user.role === 'admin'
 
-            let limit = req.query.limit
-            ?req.query.limit
-            :10
-            let page = req.query.page
-            let sort = req.query.sort
-            let queryField = req.query.queryField
-            let queryContent = req.query.queryContent
-
-            let response = await this.service.getProducts(limit, page, sort, queryField, queryContent)
-
-            let isUser = user.role === 'user'
-            let isAdmin = user.role === 'admin'
-
-            res.render('home', {
-                user,
-                response,
-                isUser,
-                isAdmin,
-                cid: user.cart._id,
-                scripts: [
-                    'products.js'
-                ],
-                useWS: true,
-            })
-
-        }catch(err){
-            res.json(err)
-        }
+        res.render('home', {
+            user,
+            response,
+            isUser,
+            isAdmin,
+            cid: user.cart._id,
+            scripts: [
+                'products.js'
+            ],
+            useWS: true,
+        })
     }
 
     async getProductById(req, res){
@@ -66,20 +58,20 @@ class ProductsController{
         const { title, description, price, thumbnail, code, stock, category } = info
 
         const result = await this.service.addProduct(title, description, price, thumbnail, code, stock, category)
-        res.send(result)
+        res.send({product: result})
     }
 
     async deleteProduct(req, res){
         const pid = req.params.pid
         const result = await this.service.deleteProduct(pid)
         console.log(result)
-        res.send(result)
+        res.status(200).send(result)
     }
 
     async updateProduct(req, res){
         let id = req.params.pid
         const result = await this.service.updateProduct(id, req.body)
-        res.send(result)
+        res.send({acknowledged: result.acknowledged, modifiedCount: result.modifiedCount})
     }
 
     async mockingProducts(_, res){

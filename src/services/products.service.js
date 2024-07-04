@@ -19,17 +19,25 @@ class ProductsService {
     }
 
     async getProductById(pid){
-        const product = await this.storage.getProductById(pid)
-        if(product){
-            return(product)
-        }else{
-            throw CustomError.createError({
-              name: 'Not found',
-              cause: 'Invalid product ID',
-              message: 'No product with that ID was found',
-              cade: ErrorCodes.NOT_FOUND
-            })
-        }
+      if(pid.length != 24){
+        throw CustomError.createError({
+          name: 'Invalid Data',
+          cause: 'The ID must have 24 characters',
+          message: "That ID is not valid",
+          code: ErrorCodes.INVALID_DATA_ERROR
+        })
+      }
+      const product = await this.storage.getProductById(pid)
+      if(product){
+          return(product)
+      }else{
+          throw CustomError.createError({
+            name: 'Not found',
+            cause: 'Invalid product ID',
+            message: 'No product with that ID was found',
+            code: ErrorCodes.NOT_FOUND
+          })
+      }
     }
 
     async addProduct(title, description, price, thumbnail, code, stock, category){
