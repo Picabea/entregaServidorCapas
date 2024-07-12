@@ -23,9 +23,9 @@ router.get('/:cid', withController((controller, req, res) => controller.getCartB
 
 router.post('/', withController((controller, req, res) => controller.createCart(req, res)))
 
-router.post('/:cid/product/:pid', withController((controller, req, res) => controller.addProductToCart(req, res)))
-
 router.post('/:cid/purchase', userIsLoggedIn, withController((controller, req, res) => controller.purchase(req, res)))
+
+router.post('/:cid/product/:pid', withController((controller, req, res) => controller.addProductToCart(req, res)))
 
 router.delete('/:cid/product/:pid', withController((controller, req, res) => controller.deleteProductFromCart(req, res)))
 

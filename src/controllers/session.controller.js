@@ -53,6 +53,12 @@ class SessionController{
         req.session.user = { _id: req.user._id}
         res.redirect('/')
     }
+
+    async userByEmail(req, res){
+        const { email } = req.body
+        const response = await this.service.userByEmail(email)
+        res.json(response)
+    }
 }
 
 module.exports = { SessionController }

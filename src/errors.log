@@ -6,3 +6,243 @@
 {"level":"error","message":"Error TypeError en GET /api/products?sort=desc&limit=5&queryfield=caca"}
 {"level":"error","message":"Error TypeError en GET /api/products"}
 {"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error SyntaxError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/6690729a56cfe280e6e59f07/product/669071e956cfe280e6e59f05"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error CastError en PUT /api/carts/undefined"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en GET /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Error en POST /api/sessions/restorePassword"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Error en POST /api/sessions/restorePassword"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error Error en POST /api/sessions/restorePassword"}
+{"level":"error","message":"Error Error en POST /api/sessions/restorePassword"}
+{"level":"error","message":"Error Error en POST /api/sessions/restorepassword"}
+{"level":"error","message":"Error Error en POST /api/sessions/restorepassword"}
+{"level":"error","message":"Error Error en POST /api/sessions/restorepassword"}
+{"level":"error","message":"Error Error en POST /api/sessions/restorepassword"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}

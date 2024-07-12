@@ -41,6 +41,8 @@ router.get('/github', passport.authenticate('github', {scope: ['user:email']}), 
 
 router.get('/githubcallback', passport.authenticate('github', {failureRedirect: '/'}), withController((controller, req, res) => controller.githubcallback(req, res)))
 
+router.get('/userbyemail', withController((controller, req, res) => controller.userByEmail(req, res)))
+
 module.exports = {
     configure: app => app.use('/api/sessions', router)
 }

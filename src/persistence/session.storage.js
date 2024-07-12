@@ -9,6 +9,10 @@ class SessionStorage{
     async restorePassword(email, newPassword){
         return await userDAO.restorePassword(email, newPassword)
     }
+
+    async userByEmail(email){
+        return await userDAO.getUser(email)
+    }
 }
 
 module.exports = { SessionStorage }

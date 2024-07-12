@@ -89,7 +89,7 @@ const main = async () => {
     //Inicializar mongo y prender servidor
 
     await mongoose.connect(config.MONGO_URI,{
-        dbName: 'ecommerce'
+        dbName: 'testing'
     })
 
     const httpServer = app.listen(8080, () => {

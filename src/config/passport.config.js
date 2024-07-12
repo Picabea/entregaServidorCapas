@@ -16,7 +16,6 @@ const initializeStrategy = () => {
 
         try{
             const cart = await Cart.create({products: []})
-            console.log("----------")
             console.log(cart._id)
 
             const user = await User.findOne({ email: username })

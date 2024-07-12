@@ -23,6 +23,10 @@ class SessionService {
     async restorePassword(email, newPassword){
         return await this.storage.restorePassword(email, newPassword)
     }
+
+    async userByEmail(email){
+        return await this.storage.userByEmail(email)
+    }
 }
 
 module.exports = { SessionService }
