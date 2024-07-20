@@ -11,7 +11,7 @@ describe('Testing de Sessions', () => {
         email: "prueba@prueba.com",
         password: "prueba"
     }
-    describe('El registro y Log In funcionan correctamente', () => {
+    describe('El registro deberia funcionar correctamente correctamente', () => {
         it('El register deberia funcionar correctamente', async () => {
             await requester.post('/api/sessions/register').send(mockUser)
 
@@ -19,12 +19,15 @@ describe('Testing de Sessions', () => {
             expect(ok).to.be.ok
             expect(body).to.have.property('_id')
             expect(statusCode).to.be.equals(200)
-
         })
 
+        
+    })
+
+    describe('El login deberia funcionar correctamente', () => {
         it('El login deberia funcionar correctamente', async () => {
             const {statusCode, ok, body} = await requester.post('/api/sessions/login').send({email: mockUser.email, password: mockUser.password})
-            console.log(`Variables de login: ${statusCode} - ${ok} - ${body}`)
+            // console.log(`Variables de login: ${statusCode} - ${ok} - ${body}`)
             console.log(body)
             expect(statusCode).to.be.equals(200)
         })

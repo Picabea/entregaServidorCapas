@@ -313,3 +313,8 @@
 {"level":"error","message":"Error Invalid Data en POST /api/products/"}
 {"level":"error","message":"Error Invalid Data en POST /api/products/"}
 {"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error TypeError en POST /api/carts/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error Invalid Data en POST /api/products/"}
+{"level":"error","message":"Error MongoServerError en POST /api/products/"}
