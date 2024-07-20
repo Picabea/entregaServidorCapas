@@ -7,8 +7,14 @@ class SessionController{
 
     login(req, res){
         // Crear sesion
+        const isLoggedIn = ![null, undefined].includes(req.session.user)
         req.session.user = {email: req.user.email, _id: req.user._id.toString()}
-        res.redirect('/api/products/')
+        console.log("Dentro de login")
+        res.render('index', {
+            title: 'Home',
+            isLoggedIn,
+            isNotLoggedIn: !isLoggedIn,
+        })
     }
 
     register(_, res){

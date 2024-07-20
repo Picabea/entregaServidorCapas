@@ -23,8 +23,10 @@ describe('Testing de Sessions', () => {
         })
 
         it('El login deberia funcionar correctamente', async () => {
-            await requester.post('/api/sessions/login').send({email: mockUser.email, password: mockUser.password})
-
+            const {statusCode, ok, body} = await requester.post('/api/sessions/login').send({email: mockUser.email, password: mockUser.password})
+            console.log(`Variables de login: ${statusCode} - ${ok} - ${body}`)
+            console.log(body)
+            expect(statusCode).to.be.equals(200)
         })
     })
 
