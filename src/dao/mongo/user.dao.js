@@ -18,6 +18,31 @@ class UserDAO {
     async restorePassword(email, newPassword){
         return await UserModel.findOneAndUpdate({email}, {password: hashPassword(newPassword)})
     }
+
+    async userLastConnection(email){
+        const nowDate = Date.now()
+        return await UserModel.findOneAndUpdate({email}, {last_connection: nowDate})
+    }
+
+    async updateUserIdStatus(uid){
+        return await UserModel.findByIdAndUpdate(uid, {id_loaded: true})
+    }
+
+    async updateUserDomStatus(uid){
+        return await UserModel.findByIdAndUpdate(uid, {dom_loaded: true})
+    }
+
+    async updateUserAccountStatus(uid){
+        return await UserModel.findByIdAndUpdate(uid, {account_loaded: true})
+    }
+
+    async addDocument(uid, document){
+        return await UserModel.findByIdAndUpdate(uid, {$push: {documents: document}})
+    }
+
+    async premium(uid){
+        return await UserModel.findByIdAndUpdate(uid, {role: 'premium'})
+    }
 }
 
 module.exports = UserDAO

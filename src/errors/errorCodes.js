@@ -4,7 +4,8 @@ const ErrorCodes = {
     DATABASE_ERROR: 3,
     NOT_FOUND: 4,
     INVALID_TOTAL_ERROR: 5,
-    INVALID_CART_ERROR: 6
+    INVALID_CART_ERROR: 6,
+    UNCOMPLETE_DOCUMENTATION: 7
 }
 
 module.exports = { ErrorCodes }

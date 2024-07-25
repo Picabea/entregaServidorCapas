@@ -30,9 +30,14 @@ const initializeStrategy = () => {
                 email,
                 password: hashingUtils.hashPassword(password),
                 cart: cart._id.toString(),
-                role: 'user'
+                role: 'user',
+                documents: [],
+                last_connection: 0,
+                id_loaded: false,
+                dom_loaded: false,
+                account_loaded: false
             }
-            console.log(newUser)
+
             const result = await User.create(newUser)
 
             return done(null, result)
@@ -62,6 +67,9 @@ const initializeStrategy = () => {
             // const credentials = { id: user._id.toString(), email: user.email}
             // const accessToken = generateToken(credentials)
             // console.log(accessToken)
+            const nowDate = Date.now()
+            const results = await User.findOneAndUpdate({email: username}, {last_connection: nowDate})
+            console.log(results)
             return done(null, user)
         }catch(error){
             done(error)

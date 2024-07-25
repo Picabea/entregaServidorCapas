@@ -26,7 +26,8 @@ const routes = [
     require('./routes/session.router.js'),
     require('./routes/views.router.js'),
     require('./routes/carts.router.js'),
-    require('./routes/transport.router.js')
+    require('./routes/transport.router.js'),
+    require('./routes/users.router.js')
 ]
 
 const { Server } = require('socket.io')
@@ -38,6 +39,7 @@ const app = express()
 //Configuracion de swagger
 const swaggerJSDoc = require('swagger-jsdoc')
 const { serve, setup } = require('swagger-ui-express')
+const { UsersStorage } = require('./persistence/users.storage.js')
 
 const swaggerOptions = {
     definition: {
@@ -77,6 +79,7 @@ app.set('products.storage', new ProductsStorage())
 app.set('views.storage', new ViewsStorage())
 app.set('session.storage', new SessionStorage())
 app.set('carts.storage', new CartsStorage())
+app.set('users.storage', new UsersStorage)
 
 
 for (const route of routes) {
@@ -89,7 +92,7 @@ const main = async () => {
     //Inicializar mongo y prender servidor
 
     await mongoose.connect(config.MONGO_URI,{
-        dbName: 'testing'
+        dbName: 'ecommerce'
     })
 
     const httpServer = app.listen(8080, () => {

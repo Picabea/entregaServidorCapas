@@ -318,3 +318,40 @@
 {"level":"error","message":"Error Invalid Data en POST /api/products/"}
 {"level":"error","message":"Error Invalid Data en POST /api/products/"}
 {"level":"error","message":"Error MongoServerError en POST /api/products/"}
+{"level":"error","message":"Error ReferenceError en GET /api/users/premium/669fc79c2bb05dd6e6e7fff3"}
+{"level":"error","message":"Error TypeError en GET /api/users/premium/669fc79c2bb05dd6e6e7fff3"}
+{"level":"error","message":"Error TypeError en GET /api/users/premium/669fc79c2bb05dd6e6e7fff3"}
+{"level":"error","message":"Error TypeError en GET /api/users/premium/669b0fdf7b2fe2d17b313617"}
+{"level":"error","message":"Error TypeError en GET /api/users/premium/6627145b85502d46cca57b04"}
+{"level":"error","message":"Error TypeError en GET /api/users/premium/6627145b85502d46cca57b04"}
+{"level":"error","message":"Error TypeError en GET /api/users/premium/6627145b85502d46cca57b04"}
+{"level":"error","message":"Error TypeError en GET /api/users/premium/6627145b85502d46cca57b04"}
+{"level":"error","message":"Error ReferenceError en POST /api/sessions/login"}
+{"level":"error","message":"Error ReferenceError en POST /api/sessions/login"}
+{"level":"error","message":"Error ReferenceError en POST /api/sessions/login"}
+{"level":"error","message":"Error ReferenceError en POST /api/sessions/login"}
+{"level":"error","message":"Error MulterError en POST /api/users/6627145b85502d46cca57b04/documents"}
+{"level":"error","message":"Error Error en POST /api/users/6627145b85502d46cca57b04/documents"}
+{"level":"error","message":"Error Error en POST /api/users/6627145b85502d46cca57b04/documents"}
+{"level":"error","message":"Error Error en POST /api/users/6627145b85502d46cca57b04/documents"}
+{"level":"error","message":"Error Error en POST /api/users/669fcb8a4200ecb181428d61/documents"}
+{"level":"error","message":"Error Error en POST /api/users/669fcb8a4200ecb181428d61/documents"}
+{"level":"error","message":"Error MulterError en POST /api/users/669fcb8a4200ecb181428d61/documents"}
+{"level":"error","message":"Error MulterError en POST /api/users/669fcb8a4200ecb181428d61/documents"}
+{"level":"error","message":"Error Error en POST /api/users/669fcb8a4200ecb181428d61/documents"}
+{"level":"error","message":"Error MulterError en POST /api/users/669fcb8a4200ecb181428d61/documents"}
+{"level":"error","message":"Error TypeError en POST /api/users/66a249fa9b966feb2103093b/documents"}
+{"level":"error","message":"Error TypeError en POST /api/users/66a249fa9b966feb2103093b/documents"}
+{"level":"error","message":"Error TypeError en POST /api/users/66a249fa9b966feb2103093b/documents"}
+{"level":"error","message":"Error TypeError en POST /api/users/66a249fa9b966feb2103093b/documents"}
+{"level":"error","message":"Error TypeError en POST /api/users/66a249fa9b966feb2103093b/documents"}
+{"level":"error","message":"Error TypeError en POST /api/users/66a249fa9b966feb2103093b/documents"}
+{"level":"error","message":"Error TypeError en POST /api/users/66a249fa9b966feb2103093b/documents"}
+{"level":"error","message":"Error TypeError en POST /api/users/66a249fa9b966feb2103093b/documents"}
+{"level":"error","message":"Error TypeError en POST /api/users/66a249fa9b966feb2103093b/documents"}
+{"level":"error","message":"Error Error en GET /api/users/uploadFiles"}
+{"level":"error","message":"Error Error en GET /api/users/uploadFiles"}
+{"level":"error","message":"Error Error en GET /api/users/uploadFiles"}
+{"level":"error","message":"Error Uncomplete documentation en GET /api/users/premium/66a249fa9b966feb2103093b"}
+{"level":"error","message":"Error Uncomplete documentation en GET /api/users/premium/66a249fa9b966feb2103093b"}
+{"level":"error","message":"Error Uncomplete documentation en GET /api/users/premium/66a249fa9b966feb2103093b"}

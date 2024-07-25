@@ -12,14 +12,22 @@ const errorHandler = (error, req, res, next) => {
             break
         case ErrorCodes.ROUTING_ERROR:
             res.status(500).send({ status: 'error', error: error.name})
+            break
         case ErrorCodes.DATABASE_ERROR:
             res.status(400).send({ status: 'error', error: error.name })
+            break
         case ErrorCodes.NOT_FOUND:
             res.status(400).send({ status: 'error', error: error.name })
+            break
         case ErrorCodes.INVALID_TOTAL_ERROR:
             res.status(400).send({ status: 'error', error: error.name })
+            break
         case ErrorCodes.INVALID_CART_ERROR:
             res.status(400).send({ status: 'error', error: error.name })
+            break
+        case ErrorCodes.UNCOMPLETE_DOCUMENTATION: 
+            res.status(400).send({ status: 'error', error: error.name})
+            break
         default:
             res.status(500).send({ status: 'error', error: 'Unknown' })
     }

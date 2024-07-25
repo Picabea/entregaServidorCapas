@@ -7,9 +7,9 @@ class SessionController{
 
     login(req, res){
         // Crear sesion
-        const isLoggedIn = ![null, undefined].includes(req.session.user)
         req.session.user = {email: req.user.email, _id: req.user._id.toString()}
         console.log("Dentro de login")
+        const isLoggedIn = ![null, undefined].includes(req.session.user)
         res.render('index', {
             title: 'Home',
             isLoggedIn,
@@ -29,7 +29,11 @@ class SessionController{
         res.send('Error logging in user!')
     }
 
-    logout(req, res){
+    async logout(req, res){
+        const { email } = req.session.user
+        console.log(email)
+        const result = await this.service.userLastConnection(email)
+        console.log(result)
         req.session.destroy(_ => {
             res.redirect('/login')
         })

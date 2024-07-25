@@ -13,6 +13,10 @@ class SessionStorage{
     async userByEmail(email){
         return await userDAO.getUser(email)
     }
+
+    async userLastConnection(email){
+        return await userDAO.userLastConnection(email)
+    }
 }
 
 module.exports = { SessionStorage }

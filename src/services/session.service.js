@@ -27,6 +27,10 @@ class SessionService {
     async userByEmail(email){
         return await this.storage.userByEmail(email)
     }
+
+    async userLastConnection(email){
+        return await this.storage.userLastConnection(email)
+    }
 }
 
 module.exports = { SessionService }
